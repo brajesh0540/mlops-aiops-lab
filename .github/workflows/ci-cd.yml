@@ -27,4 +27,4 @@ jobs:
         kubectl apply -f ./phase4-Kubernetes-Monitoring/deployment.yaml
         kubectl apply -f ./phase4-Kubernetes-Monitoring/service.yaml
         env:
-          KUBECONFIG: ~/.kube/config
+          KUBECONFIG: C:\Users\RAJ\.kube\config
