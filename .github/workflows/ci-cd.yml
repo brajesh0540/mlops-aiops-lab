@@ -17,13 +17,10 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v5
-      with:
-        context: ./phase2-ci-cd-docker
-        file: ./phase2-ci-cd-docker/Dockerfile
-        push: true
-        tags: brajeshdockerhub/insurance-api:latest
+    - name: Build and Push Docker Image
+      run: |
+        docker build -t brajeshdockerhub/insurance-api:latest ./phase2-ci-cd-docker
+        docker push brajeshdockerhub/insurance-api:latest
 
     - name: Deploy to Kubernetes
       run: |
