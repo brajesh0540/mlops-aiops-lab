@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pkl
+*.joblib
+
+# Virtual environments
+venv/
+.env/
+.envrc
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VSCode settings
+.vscode/
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# BentoML
+bento/
+*.bento
+.bentoml/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+*.tar
+*.img
+*.bak
