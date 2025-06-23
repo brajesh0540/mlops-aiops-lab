@@ -24,8 +24,7 @@ jobs:
 
     - name: Set up Kubeconfig from secret
       run: |
-        echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig.yaml
-        shell: bash
+        echo "${{ secrets.KUBECONFIG }}" > kubeconfig.yaml
 
     - name: Deploy to Kubernetes
       run: |
