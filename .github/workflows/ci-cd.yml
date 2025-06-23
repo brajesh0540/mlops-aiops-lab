@@ -22,9 +22,14 @@ jobs:
         docker build -t brajeshdockerhub/insurance-api:latest ./phase2-ci-cd-docker
         docker push brajeshdockerhub/insurance-api:latest
 
+    - name: Set up Kubeconfig
+      run: |
+        echo "${{ secrets.KUBECONFIG }}" > kubeconfig.yaml
+        export KUBECONFIG=$PWD/kubeconfig.yaml
+
     - name: Deploy to Kubernetes
       run: |
         kubectl apply -f ./phase4-Kubernetes-Monitoring/deployment.yaml
         kubectl apply -f ./phase4-Kubernetes-Monitoring/service.yaml
       env:
-        KUBECONFIG: ${{ secrets.KUBECONFIG }}
+        KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
