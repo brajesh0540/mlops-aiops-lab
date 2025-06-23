@@ -22,13 +22,7 @@ jobs:
         docker build -t brajeshdockerhub/insurance-api:latest ./phase2-ci-cd-docker
         docker push brajeshdockerhub/insurance-api:latest
 
-    - name: Decode kubeconfig
-      run: |
-        echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig.yaml
-
     - name: Deploy to Kubernetes
       run: |
         kubectl apply -f ./phase4-Kubernetes-Monitoring/deployment.yaml
         kubectl apply -f ./phase4-Kubernetes-Monitoring/service.yaml
-      env:
-        KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
